@@ -5,16 +5,21 @@
 
 </div>
 
-<div class="courses">
+<div class="demo">
+    <div>Start Date: {{ startDate | date: 'MMM/dd/yyyy' }}</div>
+    <div>{{ title | titlecase }}</div>
+    <div>{{ price | currency }}</div>
+    <div>{{ rate | percent }}</div>
+</div>
 
-    <course-card *ngFor="let course of courses;index as i; first as isFirst; last as isLast; even as isEven; odd as isOdd"
+<div class="courses">
+    <course-card *ngFor="let course of courses | slice:0:3 ;index as i; first as isFirst; last as isLast; even as isEven; odd as isOdd"
         [class.is-first]="isFirst"
         [class.is-last]="isLast"
         (courseSelected)="course.onCourseSelected($event)"
         [course]="course"
         [cardIndex]="i + 1">
     </course-card>
-
 </div>
 
 
