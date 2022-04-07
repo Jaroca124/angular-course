@@ -41,7 +41,7 @@ export class CourseCardComponent implements OnInit {
 
 
     onSaveClicked(description:string) {
-
+        this.course.description = description;
         this.courseEmitter.emit({...this.course, description});
 
     }
